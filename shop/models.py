@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.utils import timezone
+from django.core.validators import MinValueValidator
 
 class Book(models.Model):
     """本モデル"""
@@ -10,7 +11,7 @@ class Book(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name='タイトル', max_length=20)
-    price = models.IntegerField(verbose_name='価格', null=True)
+    price = models.IntegerField(verbose_name='価格', null=True, validators=[MinValueValidator(1)])
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

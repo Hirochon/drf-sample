@@ -11,7 +11,7 @@ class Book(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name='タイトル', max_length=20)
     price = models.IntegerField(verbose_name='価格', null=True)
-    created_at = models.DataTimeField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title

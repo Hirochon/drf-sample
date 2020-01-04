@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # My applications
-    'apiv1.apps.ApivConfig',  #REST API用のアプリケーション
+    # 'apiv1.apps.ApivConfig',  #REST API用のアプリケーション
     'shop.apps.ShopConfig',   #モデルを定義するためのアプリケーション
 ]
 

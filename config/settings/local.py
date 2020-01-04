@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # My applications
-    'apiv1.apps.ApivConfig',
-    'shop.apps.ShopConfig',
+    # 'apiv1.apps.ApivConfig',  #REST API用のアプリケーション
+    'shop.apps.ShopConfig',   #モデルを定義するためのアプリケーション
 ]
 
 MIDDLEWARE = [
@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD' : 'passworddayo'
+        'PASSWORD' : 'passworddayo',
         'HOST': 'db',
         'PORT': '5432',
     }

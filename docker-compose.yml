@@ -7,7 +7,7 @@ services:
             POSTGRES_PASSWORD: "passworddayo"
         ports:
             - "5432:5432"
-    django-drf:
+    drf-sample:
         build: .
         volumes: 
             - .:/code

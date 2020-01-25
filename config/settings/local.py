@@ -1,14 +1,18 @@
 import os
-from .local_s import *
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# 環境変数を設定
+env = environ.Env(DEBUG=(bool,False),ALLOWED_HOSTS=(list,[]))
+env.read_env(os.path.join(BASE_DIR,'.env'))
 
-ALLOWED_HOSTS = []
+SECRET_KEY = env('SECRET_KEY')
 
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -91,14 +95,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ############
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD' : 'passworddayo',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
+    'default':env.db(),
 }
 
 
